@@ -1,0 +1,73 @@
+﻿@model OnlineShoppingSystem.Entity.Product
+
+<link rel="stylesheet" href="~/Content/Style.css" type="text/css" />
+
+
+@{
+    ViewBag.Title = "Edit";
+
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.CategoryId);
+<table class="table">
+    <tr>
+        <td> @Html.LabelFor(model => model.ProductName)</td>
+
+        <td>
+            @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProductName)
+        </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(model => model.ProductColor)</td>
+
+        <td>
+            @Html.TextBoxFor(model => model.ProductColor, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProductColor)
+        </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(model => model.ProductPrice)</td>
+
+        <td>
+            @Html.TextBoxFor(model => model.ProductPrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProductPrice)
+        </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(model => model.Brand)</td>
+
+        <td>
+            @Html.TextBoxFor(model => model.Brand, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Brand)
+        </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(model => model.Description)</td>
+
+        <td>
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Description)
+        </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(model => model.CategoryId)</td>
+
+        <td>
+            @Html.DropDownListFor(model => model.CategoryId, ViewBag.Categories as IEnumerable<SelectListItem>)
+            @Html.ValidationMessageFor(model => model.CategoryId)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Update" />
+        </td>
+        <td><a href="/Index">Back</a></td>
+    </tr>
+</table>
+}

@@ -1,0 +1,27 @@
+﻿.textbox{
+    margin-left:40%;
+    margin-top:-4%
+
+}
+.buttons {
+ margin-left:40%;
+ margin-top:5%;
+}
+.back {
+    margin-top: -4%;
+    margin-left: 5%;
+}
+
+
+    table td, th {
+        color: black;
+    }
+span {
+    color: red;
+}
+/*form {
+    background-image: linear-gradient(to right,lightgreen,green);
+    margin-left: 0%;
+    width: 50%;
+    margin-top: 5%;
+}*/

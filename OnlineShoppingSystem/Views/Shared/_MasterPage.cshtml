@@ -1,0 +1,38 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>@ViewBag.Title- Online Shopping System</title>
+    <link rel="stylesheet" href="~/Content/Master.css" type="text/css"/>
+</head>
+<body>
+    <div class="navbar">
+        @*<div class="menu">*@
+        <ul>
+            @if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                <li>@Html.ActionLink("ProductDetails", "ProductDetails", "Product")</li>
+                <li>@Html.ActionLink("CategoryDetails", "CategoryDetails", "Category")</li>
+
+            }
+            <li>@Html.ActionLink("SignUp", "SignUp", "Account")</li>
+            <li>@Html.ActionLink("Home", "Home", "Account")</li>
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Log Out", "LogOut", "Account")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Login", "Login", "Account")</li>
+
+            }
+
+        </ul>
+    </div>
+        @*</div>*@
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

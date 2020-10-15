@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/CategoryPage.cshtml";
+
+
+}
+
+
+
+@Html.ActionLink("Adding Product items", "AddCategory")<br />
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"])
+}
+
+
+
+
+<table border="1" align="center">
+    <tr>
+        <th>
+            CategoryId
+        </th>
+        <th>
+            CategoryName
+        </th>
+        
+    </tr>
+    @foreach (OnlineShoppingSystem.Entity.Category product in Model)
+    {
+        @Html.Partial("_Index", product);
+    }
+
+</table>
+

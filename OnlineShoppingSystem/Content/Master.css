@@ -1,0 +1,42 @@
+﻿﻿ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+    list-style-type:none;
+}
+table{
+    background-image:linear-gradient(to center,rgb(0, 255, 33),rgb(5, 61, 150));
+    width:30em;
+    padding:0.5em;
+}
+
+.navbar {
+    padding: 30px;
+    background-color: #e7e7e7;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding:0px  18px  ;
+    text-decoration: none;
+
+}
+
+    li a:hover {
+        background-color: black;
+    }
+body {
+    background-image: url('image112.png');
+    /*background-image: url('online.jpg');*/
+    /*background-image: url('onlineShopping.jpg');*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.menu{
+    margin-top:20%;
+}

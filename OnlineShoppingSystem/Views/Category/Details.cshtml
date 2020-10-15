@@ -1,0 +1,30 @@
+﻿@model OnlineShoppingSystem.Entity.Category
+
+
+<link rel="stylesheet" href="~/Content/Style.css" type="text/css" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<table class="table" align="center" style="margin-top:10%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </th>
+
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.CategoryDescription)
+        </td>
+    </tr>
+
+</table>
+}

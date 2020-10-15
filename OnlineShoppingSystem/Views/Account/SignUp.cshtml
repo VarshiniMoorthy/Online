@@ -1,0 +1,114 @@
+﻿@model OnlineShoppingSystem.Models.SignUpModel
+<link rel="stylesheet" href="~/Content/Style.css" type="text/css" />
+
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2 align="center">SignUp</h2>
+    <table class="table">
+        <tr>
+            <td> @Html.LabelFor(model => model.EmailId, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmailId)
+            </td>
+
+        <tr>
+            <td> @Html.LabelFor(model => model.Password, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password)
+            </td>
+
+        </tr>
+        <tr>
+            <td><label>*Confirm Password</label></td>
+            <td>@Html.PasswordFor(Model => Model.ConfirmPassword)<span>@Html.ValidationMessageFor(Model => Model.ConfirmPassword)</span></td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.Gender, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.RadioButtonFor(model => model.Gender, "Male", new { id = "Male" })Male
+                @Html.RadioButtonFor(model => model.Gender, "Female", new { id = "Female" })Female
+                @Html.RadioButtonFor(model => model.Gender, "Others", new { id = "Others" }) Others
+
+
+
+                @Html.ValidationMessageFor(model => model.Gender)
+            </td>
+
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.Age, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.TextBoxFor(model => model.Age, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Age)
+            </td>
+
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.City, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.DropDownList("City", new List<SelectListItem>
+               {
+                   new SelectListItem { Text = "Coimbatore", Value= "1"},
+                   new SelectListItem{Text = "Trichy", Value="2"},
+                   new SelectListItem{Text = "selam", Value = "3"}
+                    }, "Select City")
+                @Html.ValidationMessageFor(model => model.City)
+
+            </td>
+
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.PhoneNumber, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
+            </td>
+
+        </tr>
+
+        <tr>
+            <td> @Html.LabelFor(model => model.Address, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Address)
+            </td>
+
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(model => model.Pincode, new { @class = "col-md-2 control-label" })</td>
+
+            <td>
+                @Html.TextBoxFor(model => model.Pincode, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Pincode)
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+            <td>
+
+                <a href="http://localhost:54344/Account/Login">Already had  an account</a>
+            </td>
+            <td>
+                <input type="submit" value="Signup" />
+            </td>
+        </tr>
+    </table>
+}

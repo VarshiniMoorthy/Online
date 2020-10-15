@@ -1,0 +1,90 @@
+﻿@model OnlineShoppingSystem.Entity.Product
+
+
+<link rel="stylesheet" href="~/Content/Style.css" type="text/css" />
+<style>
+    span {
+        color: red;
+    }
+
+    form {
+        background-image: linear-gradient(to right,lightgreen,green);
+        margin-left: 35%;
+        width: 30%;
+        margin-top: 5%;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <h4 align="center">Add Products</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                <div> @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })</div>
+                <span>  @Html.ValidationMessageFor(model => model.ProductName)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                <span> @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                @Html.EditorFor(model => model.ProductQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                <span> @Html.ValidationMessageFor(model => model.ProductQuantity, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductColor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                @Html.EditorFor(model => model.ProductColor, new { htmlAttributes = new { @class = "form-control" } })
+                <span> @Html.ValidationMessageFor(model => model.ProductColor, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                <span> @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                <span> @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="textbox">
+                @Html.DropDownListFor(model => model.CategoryId, ViewBag.Categories as IEnumerable<SelectListItem>)
+                <span> @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })</span>
+            </div>
+        </div>
+
+
+
+        <div>
+            <div class="buttons">
+                <input style="background-color:forestgreen" type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="back"><a href="~/Views/Product/ProductDetails.cshtml">Back</a></div>
+
+    </div>
+}
+

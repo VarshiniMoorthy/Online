@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OnlineShoppingSystem.Entity.Category>
+
+<link rel="stylesheet" href="~/Content/Style.css" type="text/css" />
+
+<p align="center">
+    @Html.ActionLink("Create New", "AddCategories")
+</p>
+@using (Html.BeginForm())
+{
+   
+<table align="center" class="table">
+    <h4 align="center">CategoryDetails</h4>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </th>
+        <th> Edit/delete/details</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+            </td>
+        </tr>
+    }
+
+</table>
+}
